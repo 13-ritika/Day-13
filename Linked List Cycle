@@ -1,0 +1,15 @@
+//https://leetcode.com/problems/linked-list-cycle/
+// logic used is there will be one case when fast (that moves at a speed of 2* slow) will coincide with slow
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+       if(head==null || head.next==null) return false;
+        ListNode slow = head;
+        ListNode fast = head;
+        while(slow.next!=null && fast.next!=null && fast.next.next !=null){ // if it ever reaches null => no cycle
+            slow= slow.next;
+            fast=fast.next.next;
+            if(slow==fast) return true;
+        }
+        return false;
+    }
+}
